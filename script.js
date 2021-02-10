@@ -54,6 +54,31 @@ clientChoiceOne = confirm("Would you like lowercase letters?");
 clientChoiceTwo = confirm("Would you like uppercase letters?");
 clientChoiceThree = confirm("Would you like to add symbols?");
 clientChoiceFour = confirm("Would you like to add numbers?");
+
+if (clientChoiceOne === true){
+  totalChar = totalChar.concat(lowLetters);
+  console.log(totalChar);
+}
+
+if (clientChoiceTwo === true){
+  totalChar = totalChar.concat(capLetters);
+  console.log(totalChar);
+}
+if (clientChoiceThree === true){
+  totalChar = totalChar.concat(symbols);
+  console.log(totalChar);
+}
+if (clientChoiceFour === true){
+  totalChar = totalChar.concat(numbers);
+  console.log(totalChar);
+}
+
+for (var i = 0; i < numberOfChar; i++) {
+  
+  var charIndex = Math.floor(Math.random() * totalChar.length); 
+  var randomChar = totalChar[charIndex];
+  choices.push(randomChar);
+}
 }
 // function launchLowerLetters() {
 //   console.log("Would you like lowercase letters?");
@@ -90,30 +115,7 @@ clientChoiceFour = confirm("Would you like to add numbers?");
 //   return; 
 // }
 
-if (clientChoiceOne === true){
-  totalChar = totalChar.concat(lowLetters);
-  console.log(totalChar);
-}
 
-if (clientChoiceTwo === true){
-  totalChar = totalChar.concat(capLetters);
-  console.log(totalChar);
-}
-if (clientChoiceThree === true){
-  totalChar = totalChar.concat(symbols);
-  console.log(totalChar);
-}
-if (clientChoiceFour === true){
-  totalChar = totalChar.concat(numbers);
-  console.log(totalChar);
-}
-
-for (var i = 0; i < numberOfChar; i++) {
-  
-  var charIndex = Math.floor(Math.random() * totalChar.length); 
-  var randomChar = totalChar[charIndex];
-  choices.push(randomChar);
-}
 
 
 console.log(choices);
