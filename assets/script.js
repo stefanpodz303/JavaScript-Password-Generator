@@ -4,12 +4,11 @@ var lowLetters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m
 var capLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "S", "R", "T", "U", "V", "W", "X", "Y", "Z"];
 var symbols = ["~", "!", "@", "#", "$", "%", "^", "&", "*", "+"];
 var numbers = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
- 
-var numberOfChar; 
-var clientChoiceOne; 
-var clientChoiceTwo; 
-var clientChoiceThree; 
-var clientChoiceFour; 
+var numberOfChar;
+var clientChoiceOne;
+var clientChoiceTwo;
+var clientChoiceThree;
+var clientChoiceFour;
 var totalChar = [];
 var choices = [];
 
@@ -23,70 +22,71 @@ var choices = [];
 
 // Write password to the #password input
 function launchPasswordConfirm() {
- console.log("button is clicked");
- var clientChoice = confirm("Would you like to create a new password?");
- if (clientChoice === true) {
-   launchNumberOfChar();
- }
+  console.log("button is clicked");
+  var clientChoice = confirm("Would you like to create a new password?");
+  if (clientChoice === true) {
+    launchNumberOfChar();
+  }
 }
 function isNumberValid(valueToTest) {
-var parsedValue = parseInt(valueToTest);
-if (isNaN(parsedValue)){
-  return false;
+  var parsedValue = parseInt(valueToTest);
+  if (isNaN(parsedValue)) {
+    return false;
+  }
+  else {
+    return parsedValue <= 20 && parsedValue >= 8;
+  }
+
 }
-else {
-  return parsedValue <=20 && parsedValue >=8;
-}
- 
-}
-function launchNumberOfChar(message="Pick a number of characters between 8 and 20") {
+function launchNumberOfChar(message = "Pick a number of characters between 8 and 20") {
   console.log("Number of Characters Launched");
   numberOfChar = prompt(message);
-if (isNumberValid(numberOfChar)) {
-  promptUser();
-} 
-else { launchNumberOfChar("Sorry! Invalid Character: Please pick a number between 8 and 20")
-}
+  if (isNumberValid(numberOfChar)) {
+    promptUser();
+  }
+  else {
+    launchNumberOfChar("Sorry! Invalid Character: Please pick a number between 8 and 20")
+  }
 }
 
 function promptUser() {
-clientChoiceOne = confirm("Would you like lowercase letters?");
-clientChoiceTwo = confirm("Would you like uppercase letters?");
-clientChoiceThree = confirm("Would you like to add symbols?");
-clientChoiceFour = confirm("Would you like to add numbers?");
+  clientChoiceOne = confirm("Would you like lowercase letters?");
+  clientChoiceTwo = confirm("Would you like uppercase letters?");
+  clientChoiceThree = confirm("Would you like to add symbols?");
+  clientChoiceFour = confirm("Would you like to add numbers?");
 
-if (clientChoiceOne === true){
-  totalChar = totalChar.concat(lowLetters);
-  console.log(totalChar);
-}
+  if (clientChoiceOne === true) {
+    totalChar = totalChar.concat(lowLetters);
+    console.log(totalChar);
+  }
 
-if (clientChoiceTwo === true){
-  totalChar = totalChar.concat(capLetters);
-  console.log(totalChar);
-}
-if (clientChoiceThree === true){
-  totalChar = totalChar.concat(symbols);
-  console.log(totalChar);
-}
-if (clientChoiceFour === true){
-  totalChar = totalChar.concat(numbers);
-  console.log(totalChar);
-}
+  if (clientChoiceTwo === true) {
+    totalChar = totalChar.concat(capLetters);
+    console.log(totalChar);
+  }
+  if (clientChoiceThree === true) {
+    totalChar = totalChar.concat(symbols);
+    console.log(totalChar);
+  }
+  if (clientChoiceFour === true) {
+    totalChar = totalChar.concat(numbers);
+    console.log(totalChar);
+  }
 
-for (var i = 0; i < numberOfChar; i++) {
-  
-  var charIndex = Math.floor(Math.random() * totalChar.length); 
-  var randomChar = totalChar[charIndex];
-  choices.push(randomChar);
-}
+  for (var i = 0; i < numberOfChar; i++) {
+
+    var charIndex = Math.floor(Math.random() * totalChar.length);
+    var randomChar = totalChar[charIndex];
+    choices.push(randomChar);
+  }
 }
 // function launchLowerLetters() {
 //   console.log("Would you like lowercase letters?");
 //   clientChoiceOne = confirm("Would you like lowercase letters?");
 //   console.log(clientChoiceOne);
-  
+
 //     launchCapLetters();
-  
+
 // }
 
 // function launchCapLetters() {
@@ -123,5 +123,5 @@ console.log(totalChar);
 
 // // // Add event listener to generate button
 generateBtn.addEventListener("click", launchPasswordConfirm);
-  
+
 
