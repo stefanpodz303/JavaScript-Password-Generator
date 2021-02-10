@@ -2,7 +2,7 @@
 
 ![screenshot of webpage](assets/images/JS-Password-Generator-Screenshot.png)
 
-
+https://stefanpodz303.github.io/JavaScript-Password-Generator/
 
 
 ## Description and Purpose of Work
