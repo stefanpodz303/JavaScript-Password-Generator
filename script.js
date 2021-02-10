@@ -9,8 +9,8 @@ var clientChoiceOne;
 var clientChoiceTwo;
 var clientChoiceThree;
 var clientChoiceFour;
+var choices = "";
 var totalChar = [];
-var choices = [];
 
 // create a new password prompt, if yes continue to next prompt
 // create prompt asking number of characters, input number b/w 8-20, when answer continue to next prompt
@@ -20,7 +20,7 @@ var choices = [];
 // create prompt asking if you would like to use numbers, when answered generate random password with selected characters
 
 
-// Write password to the #password input
+
 function launchPasswordConfirm() {
   console.log("button is clicked");
   var clientChoice = confirm("Would you like to create a new password?");
@@ -39,13 +39,14 @@ function isNumberValid(valueToTest) {
 
 }
 function launchNumberOfChar(message = "Pick a number of characters between 8 and 20") {
+  
   console.log("Number of Characters Launched");
   numberOfChar = prompt(message);
   if (isNumberValid(numberOfChar)) {
     promptUser();
   }
   else {
-    launchNumberOfChar("Sorry! Invalid Character: Please pick a number between 8 and 20")
+    launchNumberOfChar("Sorry! Invalid Selection: Please pick a number between 8 and 20")
   }
 }
 
@@ -54,6 +55,7 @@ function promptUser() {
   clientChoiceTwo = confirm("Would you like uppercase letters?");
   clientChoiceThree = confirm("Would you like to add symbols?");
   clientChoiceFour = confirm("Would you like to add numbers?");
+
 
   if (clientChoiceOne === true) {
     totalChar = totalChar.concat(lowLetters);
@@ -77,45 +79,12 @@ function promptUser() {
 
     var charIndex = Math.floor(Math.random() * totalChar.length);
     var randomChar = totalChar[charIndex];
-    choices.push(randomChar);
-  }
+    choices += randomChar;
+    console.log(randomChar);
+    
+  } 
+  window.alert(choices);
 }
-// function launchLowerLetters() {
-//   console.log("Would you like lowercase letters?");
-//   clientChoiceOne = confirm("Would you like lowercase letters?");
-//   console.log(clientChoiceOne);
-
-//     launchCapLetters();
-
-// }
-
-// function launchCapLetters() {
-//   console.log("Would you like uppercase letters?");
-//   clientChoiceTwo = confirm("Would you like uppercase letters?");
-//   console.log(clientChoiceTwo);
-//   if (clientChoiceTwo === true); {
-//     launchSymbols();
-//   }
-// }
-
-// function launchSymbols() {
-//   console.log("Would you like to add symbols?");
-//   clientChoiceThree = confirm("Would you like to add symbols?");
-//   console.log(clientChoiceThree);
-//   if (clientChoiceThree === true); {
-//     launchNumbers();
-//   }
-// }
-
-// function launchNumbers() {
-//   console.log("Would you like to add numbers?");
-//   clientChoiceFour = confirm("Would you like to add numbers?");
-//   console.log(clientChoiceFour);
-//   if (clientChoiceFour === true);
-//   return; 
-// }
-
-
 
 
 console.log(choices);
