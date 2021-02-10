@@ -9,8 +9,6 @@ var clientChoiceOne;
 var clientChoiceTwo;
 var clientChoiceThree;
 var clientChoiceFour;
-var choices = "";
-var totalChar = [];
 
 // create a new password prompt, if yes continue to next prompt
 // create prompt asking number of characters, input number b/w 8-20, when answer continue to next prompt
@@ -18,7 +16,6 @@ var totalChar = [];
 // create prompt asking if you would like to use capital letters, when answered continute to symbols prompt
 // create prompt asking if you would like to use symbols, when answered continue to numbers prompt 
 // create prompt asking if you would like to use numbers, when answered generate random password with selected characters
-
 
 
 function launchPasswordConfirm() {
@@ -39,7 +36,7 @@ function isNumberValid(valueToTest) {
 
 }
 function launchNumberOfChar(message = "Pick a number of characters between 8 and 20") {
-  
+
   console.log("Number of Characters Launched");
   numberOfChar = prompt(message);
   if (isNumberValid(numberOfChar)) {
@@ -51,11 +48,13 @@ function launchNumberOfChar(message = "Pick a number of characters between 8 and
 }
 
 function promptUser() {
+  var choices = "";
+  var totalChar = [];
+
   clientChoiceOne = confirm("Would you like lowercase letters?");
   clientChoiceTwo = confirm("Would you like uppercase letters?");
   clientChoiceThree = confirm("Would you like to add symbols?");
   clientChoiceFour = confirm("Would you like to add numbers?");
-
 
   if (clientChoiceOne === true) {
     totalChar = totalChar.concat(lowLetters);
@@ -81,14 +80,13 @@ function promptUser() {
     var randomChar = totalChar[charIndex];
     choices += randomChar;
     console.log(randomChar);
-    
-  } 
+
+  }
   window.alert(choices);
 }
 
-
-console.log(choices);
-console.log(totalChar);
+// console.log(choices);
+// console.log(totalChar);
 
 // // // Add event listener to generate button
 generateBtn.addEventListener("click", launchPasswordConfirm);
